@@ -1,0 +1,52 @@
+@use './variables' as *;
+
+@mixin btn {
+	font-family: $heading-font;
+}
+
+@mixin media-min($width) {
+	@media screen and (min-width: $width) {
+		@content;
+	}
+}
+@mixin media-max($width) {
+	@media screen and (max-width: $width) {
+		@content;
+	}
+}
+@mixin media-range($start-width, $end-width) {
+	@media screen and (min-width: $start-width) and (max-width: $end-width) {
+		@content;
+	}
+}
+
+// unique
+@mixin pre-tablet {
+	@media screen and (max-width: $breakpoint-pre-tablet) {
+		@content;
+	}
+}
+@mixin tablet {
+	@media screen and (min-width: $breakpoint-tablet) {
+		@content;
+	}
+}
+@mixin desktop {
+	@media screen and (min-width: $breakpoint-desktop) {
+		@content;
+	}
+}
+@mixin tablet-pre-desktop {
+	@media screen and (min-width: $breakpoint-tablet) and (max-width: $breakpoint-pre-desktop) {
+		@content;
+	}
+}
+
+@mixin adaptive-img {
+	@media (min-device-pixel-ratio: 2),
+		(-webkit-min-device-pixel-ratio: 2),
+		(min-resolution: 192dpi),
+		(min-resolution: 2dppx) {
+		@content;
+	}
+}
